@@ -10,8 +10,70 @@
       <h2>Join our team!</h2>
       <h2>Lets make a difference!</h2>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSfFGsmvBIQZYNwBmapBxOCMXLejxbjSsIH1cij6PPF9NIQB2w/viewform?usp=sf_link" class="btn-get-started scrollto">Join Us Now</a>
+      
+      <!-- ...existing code... -->
     </div>
   </section><!-- End Hero -->
+
+  <!-- ======= Countdown Section ======= -->
+<section id="countdown" style="background-color: #282c34; color: #ffffff; padding: 60px 0;">
+    <div class="container" style="text-align: center;">
+        <h2 style="font-size: 2.5em; margin-bottom: 20px;">Robocup Countdown</h2>
+        <div id="countdown-timer" style="display: flex; justify-content: center; gap: 20px; font-size: 2em;">
+            <div>
+                <span id="days">0</span>
+                <p>Days</p>
+            </div>
+            <div>
+                <span id="hours">0</span>
+                <p>Hours</p>
+            </div>
+            <div>
+                <span id="minutes">0</span>
+                <p>Minutes</p>
+            </div>
+            <div>
+                <span id="seconds">0</span>
+                <p>Seconds</p>
+            </div>
+        </div>
+        <p id="event-message" style="margin-top: 30px; font-size: 1.5em;"></p>
+    </div>
+
+    <script>
+        // Set the target date
+        var countDownDate = new Date("Jan 21, 2025 00:00:00").getTime();
+
+        // Update the count down every 1 second
+        var countdownfunction = setInterval(function() {
+
+            // Get current date and time
+            var now = new Date().getTime();
+            
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+            
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display the result in the elements
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+            
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(countdownfunction);
+                document.getElementById("countdown-timer").style.display = "none";
+                document.getElementById("event-message").innerHTML = "The Robocup event has started!";
+            }
+        }, 1000);
+    </script>
+</section><!-- End Countdown Section -->
 
   <main id="main">
 
@@ -135,7 +197,7 @@
     </section> --><!-- End Featured Section -->
 
     <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials">
+    {% comment %} <section id="testimonials" class="testimonials">
       <div class="container">
 
         <div class="owl-carousel testimonials-carousel">
@@ -198,7 +260,7 @@
         </div>
 
       </div>
-    </section><!-- End Testimonials Section -->
+    </section><!-- End Testimonials Section --> {% endcomment %}
 
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
