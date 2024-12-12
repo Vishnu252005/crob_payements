@@ -20,7 +20,7 @@
         <h1>{{ event_name }} Registration</h1>
         <a href="{{ rulebook_link }}" class="download-link" target="_blank">Download the Rule Book</a>
 
-        <form method="POST" action="{% url 'submit-event' event_name=event_name %}">
+        <form method="POST" action="{% url 'submit-event' event_name=event_name %}" enctype="multipart/form-data">
             {% csrf_token %}
             <!-- Leader Details -->
             <h3>Team Details</h3>
@@ -53,6 +53,10 @@
                 <label for="branch">Branch</label>
                 <input type="text" id="branch" name="branch" placeholder="Enter branch" required>
             </div>
+            <div class="form-group">
+                <label for="screenshot">Screenshot</label>
+                <input type="file" id="screenshot" name="screenshot" required>
+            </div>
 
             <!-- Team Member Details -->
             <div id="team-members">
@@ -70,6 +74,21 @@
             <!-- Submit Form -->
             <button type="submit" style="margin-top: 20px;">Submit Registration</button>
         </form>
+        <!-- Display form errors -->
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                <ul>
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
     </div>
     
 
@@ -95,15 +114,3 @@
 </main>
 
 {% endblock %}
-
-
-            <!-- Proceed to Payment -->
- <!--            <div style="text-align: center; margin-top: 20px;">
-                <a href="{% url 'payment-page' %}">
-                    <button type="button" style="background-color: #28a745; border: none; color: white; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer;">
-                        Proceed to Payment
-                    </button>
-                </a>
-            </div>
-
- -->

@@ -67,6 +67,8 @@ def register_submission_view(request, event_name):  # Accept event_name paramete
             messages.success(request, f"Successfully registered for {event_name}!")
             return redirect('crob-home')
         else:
+            # Log form errors for debugging
+            print(form.errors)
             messages.error(request, "Please correct the errors below.")
             return render(request, 'crob/event_registration.html', {
                 "form": form,
