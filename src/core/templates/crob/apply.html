@@ -1,0 +1,163 @@
+{% extends 'crob/base.html' %}
+{% block content %}
+{% load static %}
+
+<main id="main">
+
+   <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+      </br>
+        <ol>
+          <li><a href="{% url 'crob-home' %}">Home</a></li>
+          <li><a>Events</a></li>
+        </ol>
+        <h2>ROBOCUP TKMCE KERALA 2025</h2>
+          <h6 class="card-title"><a href="https://drive.google.com/file/d/1mEgPpaIWbr6XNqKcuqME13e2FnLWRRDL/view?usp=drivesdk">Download the brochure</a></h6>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Featured Section ======= -->
+    <section id="featured" class="featured">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="card">
+              <img src="{% static 'assets/img/featured-1.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5><strong>Line Follower</strong></h5>
+                <h6 class="card-title"><a href="https://drive.google.com/file/d/1kQzCfkjC4W0i0uaaRmfrYe5igCCdI3TT/view?usp=drivesdk">Download the rulebook</a></h6>
+                <p class="card-text"></p>
+                 {% if user.is_authenticated %} 
+                <h6 class="card-title"><a href="{% url 'register-event' event_name='Line Follower' %}" class="btn">
+                     Register
+                 {% else %}
+                 <h6 class="card-title"><a href="{% url 'login' %}">Please Login  to Register</a> </h6>
+                {% endif %}
+                </a></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="card">
+              <img src="{% static 'assets/img/featured-2.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5><strong> MicroMouse</strong></h5>
+                <h6 class="card-title"><a href="https://drive.google.com/file/d/1kQzCfkjC4W0i0uaaRmfrYe5igCCdI3TT/view?usp=drivesdk">Download the rulebook</a></h6>
+                 {% if user.is_authenticated %} 
+                 <h6 class="card-title"><a href="{% url 'register-event' event_name='MicroMouse' %}" class="btn">
+                     Register
+                 {% else %}
+                 <h6 class="card-title"><a href="{% url 'login' %}">Please Login  to Register</a></h6>
+                {% endif %}
+                </a></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="card">
+              <img src="{% static 'assets/img/featured-2.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5><strong> Roborace</strong></h5>
+                <h6 class="card-title"><a href="https://drive.google.com/file/d/1kQzCfkjC4W0i0uaaRmfrYe5igCCdI3TT/view?usp=drivesdk">Download the rulebook</a></h6>
+                 {% if user.is_authenticated %} 
+                 <h6 class="card-title"><a href="{% url 'register-event' event_name='Roborace' %}" class="btn">
+                     Register
+                 {% else %}
+                 <h6 class="card-title"><a href="{% url 'login' %}">Please Login  to Register</a></h6>
+                {% endif %}
+                </a></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="card">
+              <img src="{% static 'assets/img/featured-2.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5><strong> 200g Antweight</strong></h5>
+                <h6 class="card-title"><a href="https://drive.google.com/file/d/1kQzCfkjC4W0i0uaaRmfrYe5igCCdI3TT/view?usp=drivesdk">Download the rulebook</a></h6>
+                 {% if user.is_authenticated %} 
+                 <h6 class="card-title"><a href="{% url 'register-event' event_name='200g Antweight' %}" class="btn">
+                     Register
+                 {% else %}
+                 <h6 class="card-title"><a href="{% url 'login' %}">Please Login  to Register</a> </h6>
+                {% endif %}
+                </a></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="card">
+              <img src="{% static 'assets/img/featured-2.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5><strong>Robosoccer</strong></h5>
+                <h6 class="card-title"><a href="https://drive.google.com/file/d/1kQzCfkjC4W0i0uaaRmfrYe5igCCdI3TT/view?usp=drivesdk">Download the rulebook</a></h6>
+                 {% if user.is_authenticated %} 
+                 <h6 class="card-title"><a href="{% url 'register-event' event_name='Robosoccer' %}" class="btn">
+                     Register
+                 {% else %}
+                 <h6 class="card-title"><a href="{% url 'login' %}">Please Login  to Register</a></h6> 
+                {% endif %}
+                </a></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="card">
+              <img src="{% static 'assets/img/featured-2.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5><strong> 8Kg Robowar</strong></h5>
+                <h6 class="card-title"><a href="https://drive.google.com/file/d/1kQzCfkjC4W0i0uaaRmfrYe5igCCdI3TT/view?usp=drivesdk">Download the rulebook</a></h6>
+                 {% if user.is_authenticated %} 
+                 <h6 class="card-title"><a href="{% url 'register-event' event_name='8Kg Robowar' %}" class="btn">
+                     Register
+                 {% else %}
+                 <h6 class="card-title"><a href="{% url 'login' %}">Please Login  to Register</a> 
+                {% endif %}
+                </a></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="card">
+              <img src="{% static 'assets/img/featured-2.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5><strong> 25Kg Robowar</strong></h5>
+                <h6 class="card-title"><a href="https://drive.google.com/file/d/1kQzCfkjC4W0i0uaaRmfrYe5igCCdI3TT/view?usp=drivesdk">Download the rulebook</a></h6>
+                 {% if user.is_authenticated %} 
+                 <h6 class="card-title"><a href="{% url 'register-event' event_name='25Kg Robowar' %}" class="btn">
+                     Register
+                 {% else %}
+                 <h6 class="card-title"><a href="{% url 'login' %}">Please Login  to Register</a></h6> 
+                {% endif %}
+                </a></h6>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="card">
+              <img src="{% static 'assets/img/featured-3.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5><strong> 500g Robowar</strong></h5>
+                <h6 class="card-title"><a href="https://drive.google.com/file/d/1kQzCfkjC4W0i0uaaRmfrYe5igCCdI3TT/view?usp=drivesdk">Download the rulebook</a></h6>
+                 {% if user.is_authenticated %} 
+                 <h6 class="card-title"><a href="{% url 'register-event' event_name='500g Robowar' %}" class="btn">
+                     Register
+                 {% else %}
+                 <h6 class="card-title"><a href="{% url 'login' %}">Please Login  to Register</a> </h6>
+                {% endif %}
+                </a></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section> 
+</main>
+
+
+{% endblock %}

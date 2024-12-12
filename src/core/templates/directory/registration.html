@@ -1,0 +1,21 @@
+{% extends 'crob/base.html' %}
+{% block content %}
+{% load static %}
+
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row content">
+          <div class="col-lg-6">
+<h2>Register</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+</form>
+      </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+  {% endblock %}

@@ -1,0 +1,109 @@
+{% extends 'crob/base.html' %}
+{% load static %}
+
+{% block content %}
+<main id="main">
+    <!-- Breadcrumbs -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+            </br>
+
+            <ol>
+                <li><a href="{% url 'crob-home' %}">Home</a></li>
+                <li><a href="{% url 'events' %}">Events</a></li>
+                <li>{{ event_name }}</li>
+            </ol>
+        </div>
+    </section>
+
+    <div class="container">
+        <h1>{{ event_name }} Registration</h1>
+        <a href="{{ rulebook_link }}" class="download-link" target="_blank">Download the Rule Book</a>
+
+        <form method="POST" action="{% url 'submit-event' event_name=event_name %}">
+            {% csrf_token %}
+            <!-- Leader Details -->
+            <h3>Team Details</h3>
+
+            <div class="form-group">
+                <label for="team_name">Team Name</label>
+                <input type="text" id="team_name" name="team_name" placeholder="Enter team name" required>
+            </div>
+            <div class="form-group">
+                <label for="leader_name">Full Name</label>
+                <input type="text" id="leader_name" name="leader_name" placeholder="Enter leader's name" required>
+            </div>
+            <div class="form-group">
+                <label for="leader_email">Email Address</label>
+                <input type="email" id="leader_email" name="leader_email" placeholder="Enter leader's email" required>
+            </div>
+            <div class="form-group">
+                <label for="leader_phone">Phone Number</label>
+                <input type="tel" id="leader_phone" name="leader_phone" placeholder="Enter leader's phone" required>
+            </div>
+            <div class="form-group">
+                <label for="college">College</label>
+                <input type="text" id="college" name="college" placeholder="Enter college name" required>
+            </div>
+            <div class="form-group">
+                <label for="year">Year</label>
+                <input type="text" id="year" name="year" placeholder="Enter year of study" required>
+            </div>
+            <div class="form-group">
+                <label for="branch">Branch</label>
+                <input type="text" id="branch" name="branch" placeholder="Enter branch" required>
+            </div>
+
+            <!-- Team Member Details -->
+            <div id="team-members">
+                <!-- Member Input Fields -->
+                <div class="form-group">
+                    <label for="member_1">Member 1 Name</label>
+                    <input type="text" id="member_1" name="team_members[]" placeholder="Enter member's name" required>
+                </div>
+            </div>
+            <button type="button" id="add-member">Add Team Member</button>
+
+            <!-- Hidden Fields for Event Details -->
+            <input type="hidden" name="event_name" value="{{ event_name }}">
+            <input type="hidden" name="fee" value="{{ fee }}">
+            <!-- Submit Form -->
+            <button type="submit" style="margin-top: 20px;">Submit Registration</button>
+        </form>
+    </div>
+    
+
+    <!-- JavaScript to Dynamically Add/Remove Team Member Fields -->
+<script>
+    document.getElementById('add-member').addEventListener('click', function () {
+        const container = document.getElementById('team-members');
+        const count = container.children.length; // Current number of team members
+        if (count >= 4) {
+            alert('You can only add up to 4 additional team members (total 5 members including the leader).');
+            return;
+        }
+        const div = document.createElement('div');
+        div.classList.add('form-group');
+        div.innerHTML = `
+            <label for="member_${count + 1}">Member ${count + 1} Name</label>
+            <input type="text" id="member_${count + 1}" name="team_members[]" placeholder="Enter member's name" required>
+        `;
+        container.appendChild(div);
+    });
+</script>
+
+</main>
+
+{% endblock %}
+
+
+            <!-- Proceed to Payment -->
+ <!--            <div style="text-align: center; margin-top: 20px;">
+                <a href="{% url 'payment-page' %}">
+                    <button type="button" style="background-color: #28a745; border: none; color: white; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer;">
+                        Proceed to Payment
+                    </button>
+                </a>
+            </div>
+
+ -->

@@ -1,0 +1,46 @@
+{% extends 'crob/base.html' %}
+{% block content %}
+<main id="main">
+   <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+      </br>
+
+        <ol>
+          <li><a href="{% url 'crob-home' %}">Home</a></li>
+          <li>My events</li>
+        </ol>
+        <h2>ROBOCUP TKMCE KERALA 2025</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <div class="container">
+        <h1>My Events</h1>
+        {% if registrations %}
+            <div style="margin-bottom: 40px;"> <!-- Adds space between the table and footer -->
+                <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                    <thead>
+                        <tr style="background-color: #f4f4f4;">
+                            <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">Event Name</th>
+                            <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">Team Name</th>
+                            <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">Registration Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for registration in registrations %}
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 10px;">{{ registration.event_name }}</td>
+                                <td style="border: 1px solid #ddd; padding: 10px;">{{ registration.team_name }}</td>
+                                <td style="border: 1px solid #ddd; padding: 10px;">{{ registration.registration_date }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p>You haven't registered for any events yet.</p>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}
